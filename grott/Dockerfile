@@ -13,6 +13,7 @@ RUN set -x \
 
 # Copy root filesystem
 COPY rootfs /
+COPY config.ini /opt
 
 # Sets working directory
 WORKDIR /opt
