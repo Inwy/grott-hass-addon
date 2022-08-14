@@ -1,6 +1,6 @@
 name: "Grott"
 description: "An inverter monitor for Growatt inverters"
-version: "0.1.5"
+version: "0.1.6"
 slug: "grott"
 init: false
 arch:
@@ -19,3 +19,5 @@ schema:
   verbose: bool
 ports:
   5279/tcp: 5279
+ports_description:
+  5279/tcp: "Port on which the Growatt inverters communicate with the company servers"
