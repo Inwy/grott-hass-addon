@@ -7,7 +7,7 @@
 if  bashio::config.has_value 'verbose'; then export gverbose="$(bashio::config 'gverbose')"; fi
 
 if ! bashio::services.available "mqtt"; then
-    bashio::log.info "No internal MqTT service found"
+    bashio::exit.nok "No internal MQTT service available"
 else
     export gmqttip="$(bashio::services "mqtt" "host")"
     export gmqttport="$(bashio::services "mqtt" "port")"
