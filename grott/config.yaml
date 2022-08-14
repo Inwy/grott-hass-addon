@@ -1,6 +1,6 @@
 name: "Grott"
-description: "An inverter monitor for Growatt inverters"
-version: "0.1.6"
+description: "A monitor for Growatt inverters"
+version: "0.1.7"
 slug: "grott"
 init: false
 arch:
@@ -11,12 +11,12 @@ arch:
   - i386
 services:
   - mqtt:want
-image: inwy/{arch}-addon-grott
-codenotary: edwin@inwy.nl
+image: "ghcr.io/inwy/{arch}-addon-grott"
+codenotary: "edwin@inwy.nl"
 options:
   verbose: true
 schema:
-  verbose: bool
+  verbose: "bool"
 ports:
   5279/tcp: 5279
 ports_description:
