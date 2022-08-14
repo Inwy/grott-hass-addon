@@ -5,7 +5,7 @@ FROM $BUILD_FROM
 ENV GROTT_VERSION '2.6.1'
 
 RUN set -x \
-  && pip3 install paho-mqtt requests \
+  && pip3 install paho-mqtt requests crudini \
   && apk add --no-cache --virtual .build-dependencies \ 
     git \
   && git clone --depth=1 https://github.com/johanmeijer/grott.git /opt \

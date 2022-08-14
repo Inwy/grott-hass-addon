@@ -3,21 +3,29 @@
 # Home Assistant Add-on: Grott
 # Configures Grott
 # ==============================================================================
+readonly CONFIG=/opt/grott.ini
 
 bashio::log "Configuring Grott using the add-on configuration"
 
-if  bashio::config.has_value 'verbose'; then export gverbose="$(bashio::config 'gverbose')"; fi
-
-if ! bashio::services.available "mqtt"; then
-    bashio::exit.nok "No internal MQTT service available"
-else
-    bashio::log "Gathering MQTT information from internal services"
-
-    bashio::log "$(bashio::services "mqtt" "host")"
-
-    export gmqttip="$(bashio::services "mqtt" "host")"
-    export gmqttport="$(bashio::services "mqtt" "port")"
-    export gmqttauth="True"
-    export gmqttuser="$(bashio::services "mqtt" "username")"
-    export gmqttpassword="$(bashio::services "mqtt" "password")"
+# If config.ini does not exist, create it.
+if ! bashio::fs.file_exists "$CONFIG"; then
+    bashio::log.info "Creating default configuration..."
+    bashio::log "Timezone: $(bashio::info.timezone)"
+    crudini --set "$CONFIG" Generic mode "proxy"
 fi
+
+if  bashio::config.has_value 'verbose'; then crudini --set "$CONFIG" Generic verbose "$(bashio::config 'verbose')" fi
+
+if  bashio::config.has_value 'mqtt_ip'; then 
+    crudini --set "$CONFIG" MQTT nomqtt "False" 
+    crudini --set "$CONFIG" MQTT ip "$(bashio::config 'mqtt_ip')" 
+fi
+
+if  bashio::config.has_value 'mqtt_port'; then crudini --set "$CONFIG" MQTT port "$(bashio::config 'mqtt_port')" fi
+
+if  bashio::config.has_value 'mqtt_user'; then 
+    crudini --set "$CONFIG" MQTT auth "True" 
+    crudini --set "$CONFIG" MQTT user "$(bashio::config 'mqtt_user')" 
+fi
+
+if  bashio::config.has_value 'mqtt_password'; then crudini --set "$CONFIG" MQTT password "$(bashio::config 'mqtt_password')" fi
