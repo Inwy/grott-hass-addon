@@ -10,3 +10,6 @@ labels:
   org.opencontainers.image.description: "An inverter monitor for Growatt inverters"
   org.opencontainers.image.source: "https://github.com/inwy/grott-hass-addon"
   org.opencontainers.image.licenses: "MIT"
+codenotary:
+  base_image: notary@home-assistant.io
+  signer: edwin@inwy.nl
