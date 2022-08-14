@@ -1,0 +1,21 @@
+name: "Grott"
+description: "An inverter monitor for Growatt inverters"
+version: "0.1.5"
+slug: "grott"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+services:
+  - mqtt:want
+image: inwy/{arch}-addon-grott
+codenotary: edwin@inwy.nl
+options:
+  verbose: true
+schema:
+  verbose: bool
+ports:
+  5279/tcp: 5279

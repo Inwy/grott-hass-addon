@@ -1,0 +1,7 @@
+#!/command/with-contenv bashio
+# ==============================================================================
+# Home Assistant Add-on: Grott
+# Runs Grott
+# ==============================================================================
+bashio::log.info "Starting Grott..."
+exec /usr/bin/grott
