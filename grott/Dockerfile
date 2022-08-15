@@ -14,6 +14,7 @@ RUN set -x \
 # Copy root filesystem
 COPY rootfs /
 COPY config.ini /opt
+COPY autodiscovery.py /opt
 
 # Sets working directory
 WORKDIR /opt
