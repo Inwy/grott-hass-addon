@@ -41,7 +41,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "power",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json[\'values\'][\'pv1watt\'] | int / 10 }}",
+            "value_template": "{{ value_json['values']['pv1watt'] | int / 10 }}",
             "unique_id": "grott_{0}_string1_power".format(device),
             "object_id": "grott_{0}_string1_power".format(device),
             "unit_of_measurement": "W",
@@ -56,7 +56,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "current",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pv1current | int / 10 }}",
+            "value_template": "{{ value_json['values']['pv1current'] | int / 10 }}",
             "unique_id": "grott_{0}_string1_current".format(device),
             "object_id": "growatt_{0}_string1_current".format(device),
             "unit_of_measurement": "A",
@@ -71,7 +71,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "voltage",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pv1voltage | int / 10 }}",
+            "value_template": "{{ value_json['values']['pv1voltage'] | int / 10 }}",
             "unique_id": "grott_{0}_string1_voltage".format(device),
             "object_id": "growatt_{0}_string1_voltage".format(device),
             "unit_of_measurement": "V",
@@ -86,7 +86,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "power",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pv2watt | int / 10 }}",
+            "value_template": "{{ value_json['values']['pv2watt'] | int / 10 }}",
             "unique_id": "grott_{0}_string2_power".format(device),
             "object_id": "growatt_{0}_string2_power".format(device),
             "unit_of_measurement": "W",
@@ -101,7 +101,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "current",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pv2current | int / 10 }}",
+            "value_template": "{{ value_json['values']['pv2current'] | int / 10 }}",
             "unique_id": "grott_{0}_string2_current".format(device),
             "object_id": "growatt_{0}_string2_current".format(device),
             "unit_of_measurement": "A",
@@ -116,7 +116,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "voltage",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pv2voltage | int / 10 }}",
+            "value_template": "{{ value_json['values']['pv2voltage'] | int / 10 }}",
             "unique_id": "grott_{0}_string2_voltage".format(device),
             "object_id": "growatt_{0}_string2_voltage".format(device),
             "unit_of_measurement": "V",
@@ -131,7 +131,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "power",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pvpowerin | int / 10 }}",
+            "value_template": "{{ value_json['values']['pvpowerin'] | int / 10 }}",
             "unique_id": "grott_{0}_power_input".format(device),
             "object_id": "growatt_{0}_power_input".format(device),
             "unit_of_measurement": "W",
@@ -146,7 +146,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "power",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pvpowerout | int / 10 }}",
+            "value_template": "{{ value_json['values']['pvpowerout'] | int / 10 }}",
             "unique_id": "grott_{0}_power_output".format(device),
             "object_id": "growatt_{0}_power_output".format(device),
             "unit_of_measurement": "W",
@@ -161,7 +161,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "frequency",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pvfrequentie | int / 100 }}",
+            "value_template": "{{ value_json['values']['pvfrequentie'] | int / 100 }}",
             "unique_id": "grott_{0}_grid_frequency".format(device),
             "object_id": "growatt_{0}_grid_frequency".format(device),
             "unit_of_measurement": "Hz",
@@ -177,7 +177,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "voltage",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pvgridvoltage | int / 10 }}",
+            "value_template": "{{ value_json['values']['pvgridvoltage'] | int / 10 }}",
             "unique_id": "grott_{0}_phase_voltage".format(device),
             "object_id": "growatt_{0}_phase_voltage".format(device),
             "unit_of_measurement": "V",
@@ -192,7 +192,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "energy",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pvenergytoday | int / 10 }}",
+            "value_template": "{{ value_json['values']['pvenergytoday'] | int / 10 }}",
             "unique_id": "grott_{0}_energy_today".format(device),
             "object_id": "growatt_{0}_energy_today".format(device),
             "unit_of_measurement": "kWh",
@@ -210,7 +210,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "energy",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pvenergytotal | int / 10 }}",
+            "value_template": "{{ value_json['values']['pvenergytotal'] | int / 10 }}",
             "unique_id": "grott_{0}_energy_total".format(device),
             "object_id": "growatt_{0}_energy_total".format(device),
             "unit_of_measurement": "kWh",
@@ -228,7 +228,7 @@ def grottext(conf, data, jsonmsg) :
         "payload": json.dumps({
             "device_class": "temperature",
             "state_topic":  stateTopic,
-            "value_template": "{{ value_json.values.pvtemperature | int / 10 }}",
+            "value_template": "{{ value_json['values']['pvtemperature'] | int / 10 }}",
             "unique_id": "grott_{0}_inverter_temperature".format(device),
             "object_id": "growatt_{0}_inverter_temperature".format(device),
             "unit_of_measurement": "°C",

@@ -1,6 +1,6 @@
 name: "Grott"
 description: "A monitor for Growatt inverters"
-version: "0.1.17"
+version: "0.1.18"
 slug: "grott"
 init: false
 arch:
