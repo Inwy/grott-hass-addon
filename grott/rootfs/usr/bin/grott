@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec python3 /opt/grott.py -c /opt/config.ini
+exec python3 /opt/grott/grott.py -c /opt/grott/config.ini

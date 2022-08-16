@@ -3,7 +3,7 @@
 # Home Assistant Add-on: Grott
 # Configures Grott
 # ==============================================================================
-readonly CONFIG=/opt/config.ini
+readonly CONFIG=/opt/grott/config.ini
 
 bashio::log "Configuring Grott using the add-on configuration"
 
