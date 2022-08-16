@@ -8,9 +8,7 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 COPY requirements.txt .
 
 RUN set -x \
-  && python3 ensurepip \
   && pip install -r requirements.txt \
-  #&& pip3 install paho-mqtt requests crudini \
   && apk add --no-cache --virtual .build-dependencies \ 
     git \
   && git clone --depth=1 https://github.com/johanmeijer/grott.git /opt \
