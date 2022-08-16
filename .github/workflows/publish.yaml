@@ -7,25 +7,31 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    name: Publish ${{ matrix.arch }} grott add-on
+    name: Publish ${{ matrix.arch }} add-on
     strategy:
       matrix:
+        addon: "grott"
         arch: ["aarch64", "amd64", "armhf", "armv7", "i386"]
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
+      - name: Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
+        with:
+          path: "./${{ matrix.addon }}"
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v2.0.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish Grott add-on
+      - name: Publish ${{ matrix.addon }} add-on
         uses: home-assistant/builder@2022.07.0
         with:
           args: |
             --${{ matrix.arch }} \
-            --target /data/grott \
+            --target /data/${{ matrix.addon }} \
             --image "${{ steps.check.outputs.image }}" \
             --docker-hub "ghcr.io/${{ github.repository_owner }}" \
             --addon
