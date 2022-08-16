@@ -1,6 +1,6 @@
 name: "Grott"
 description: "A monitor for Growatt inverters"
-version: "0.1.18"
+version: "0.5.0"
 slug: "grott"
 init: false
 arch:
@@ -12,7 +12,7 @@ arch:
 services:
   - mqtt:want
 image: "ghcr.io/inwy/{arch}-addon-grott"
-codenotary: "edwin@inwy.nl"
+codenotary: "notary@inwy.nl"
 options:
   verbose: true
   mqtt_ip: "127.0.0.1"
