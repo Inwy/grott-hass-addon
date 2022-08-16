@@ -1,11 +1,16 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Set env
-ENV GROTT_VERSION '2.6.1'
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+COPY requirements.txt .
 
 RUN set -x \
-  && pip3 install paho-mqtt requests crudini \
+  && python3 ensurepip \
+  && pip install -r requirements.txt \
+  #&& pip3 install paho-mqtt requests crudini \
   && apk add --no-cache --virtual .build-dependencies \ 
     git \
   && git clone --depth=1 https://github.com/johanmeijer/grott.git /opt \
