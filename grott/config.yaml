@@ -11,7 +11,7 @@ arch:
   - i386
 services:
   - mqtt:want
-image: "ghcr.io/inwy/{arch}-addon-grott"
+image: "ghcr.io/ebosveld/{arch}-addon-grott"
 codenotary: "notary@inwy.nl"
 options:
   verbose: true
