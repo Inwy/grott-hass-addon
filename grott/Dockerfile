@@ -10,9 +10,8 @@ COPY requirements.txt .
 RUN set -x \
   && pip install -r requirements.txt \
   && apk add --no-cache --virtual .build-dependencies \ 
-    git \
-  && git clone --depth=1 https://github.com/johanmeijer/grott.git /opt/grott \
-  && apk del .build-dependencies 
+    git patch \
+  && git clone --depth=1 https://github.com/johanmeijer/grott.git /opt/grott
 
 
 # Copy root filesystem
@@ -26,4 +25,5 @@ WORKDIR /opt/grott
 
 # Apply patches
 RUN cd /opt/grott \
-  && patch < grottdata.retain.patch
+  && patch < grottdata.retain.patch \
+  && apk del .build-dependencies 
