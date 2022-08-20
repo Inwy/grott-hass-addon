@@ -1,0 +1,11 @@
+--- grottdata.py	2022-08-20 21:52:29.000000000 +0200
++++ grottdata.patched.py	2022-08-20 21:53:03.000000000 +0200
+@@ -374,7 +374,7 @@
+ 
+         if conf.nomqtt != True:
+             try: 
+-                publish.single(conf.mqtttopic, payload=jsonmsg, qos=0, retain=False, hostname=conf.mqttip,port=conf.mqttport, client_id=conf.inverterid, keepalive=60, auth=conf.pubauth)
++                publish.single(conf.mqtttopic, payload=jsonmsg, qos=0, retain=True, hostname=conf.mqttip,port=conf.mqttport, client_id=conf.inverterid, keepalive=60, auth=conf.pubauth)
+                 if conf.verbose: print("\t - " + 'MQTT message message sent') 
+             except TimeoutError:     
+                 if conf.verbose: print("\t - " + 'MQTT connection time out error') 
