@@ -11,7 +11,12 @@ RUN set -x \
   && pip install -r requirements.txt \
   && apk add --no-cache --virtual .build-dependencies \ 
     git patch dos2unix \
-  && git clone --depth=1 https://github.com/johanmeijer/grott.git /opt/grott
+  && git clone --depth=1 https://github.com/johanmeijer/grott.git /tmp/src \
+  && mkdir /opt/grott \
+  && mv grottconf.py grottsniffer.py grott.py grottdata.py grottproxy.py /opt/grott \
+  && rm -rf /tmp/src \
+  && cd /opt/grott \
+  && dos2unix *
 
 
 # Copy root filesystem
@@ -25,6 +30,5 @@ WORKDIR /opt/grott
 
 # Apply patches
 RUN cd /opt/grott \
-  && git ls-files -z | xargs -0 dos2unix \
   && patch < grottdata.retain.patch \
   && apk del .build-dependencies 
