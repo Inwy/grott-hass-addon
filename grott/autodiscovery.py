@@ -27,7 +27,7 @@ def grottext(conf, data, jsonmsg) :
         if conf.verbose : print("\t - " + "Device {0} already announced to Home Assistant, ignoring".format(device)) 
         return resultcode
 
-    stateTopic = "homeassistant/sensor/growatt_inverter/state"
+    stateTopic = "homeassistant/sensor/growatt_inverter/state/{0}".format(device)
     deviceObject = {
         "manufacturer": "Growatt",
         "name": "Growatt - {0}".format(device),

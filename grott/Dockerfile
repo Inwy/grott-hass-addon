@@ -29,4 +29,5 @@ WORKDIR /opt/grott
 # Apply patches
 RUN cd /opt/grott \
   && patch < grottdata.retain.patch \
+  && patch < grottdata.multipleinverters.patch \
   && apk del .build-dependencies 
