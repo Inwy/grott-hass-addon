@@ -26,4 +26,4 @@ WORKDIR /opt/grott
 
 # Apply patches
 RUN cd /opt/grott \
-  && patch < patches/grottdata.retain.patch
+  && patch < grottdata.retain.patch
