@@ -11,11 +11,9 @@ RUN set -x \
   && pip install -r requirements.txt \
   && apk add --no-cache --virtual .build-dependencies \ 
     git patch dos2unix \
-  && git clone --depth=1 https://github.com/johanmeijer/grott.git /tmp/src \
-  && mkdir /opt/grott \
-  && mv grottconf.py grottsniffer.py grott.py grottdata.py grottproxy.py /opt/grott \
-  && rm -rf /tmp/src \
+  && git clone --depth=1 https://github.com/johanmeijer/grott.git /opt/grott
   && cd /opt/grott \
+  && rm -rf README.md Version_history.txt docker examples wiki \
   && dos2unix *
 
 
