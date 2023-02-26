@@ -1,6 +1,6 @@
 name: "Grott"
 description: "A monitor for Growatt inverters"
-version: "0.7.0"
+version: "0.8.0"
 slug: "grott"
 init: false
 arch:
@@ -10,21 +10,24 @@ arch:
   - armv7
   - i386
 services:
-  - mqtt:want
+  - mqtt:need
 image: "ghcr.io/ebosveld/{arch}-addon-grott"
 codenotary: "notary@inwy.nl"
+hassio_api: true
 options:
   verbose: true
-  mqtt_ip: "127.0.0.1"
-  mqtt_port: 1883
-  mqtt_user: "user"
-  mqtt_password: "password"
+  pvoutput:
+    - apikey: "APIKey"
+      inverters:
+      - system_id: "PVOutput System ID"
+        inverter: "serial"
 schema:
   verbose: "bool"
-  mqtt_ip: "str"
-  mqtt_port: "port"
-  mqtt_user: "str"
-  mqtt_password: "password"
+  pvoutput:
+    - apikey: str
+      inverters:
+      - system_id: str
+      - inverter: str
 ports:
   5279/tcp: 5279
 ports_description:
