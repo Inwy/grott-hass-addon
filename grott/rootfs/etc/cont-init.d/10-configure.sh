@@ -34,11 +34,9 @@ fi
 if bashio::config.true 'pvoutput.enabled'; then
     bashio::log "Setting PVOutput settings"
 
-    pvOutputSettings = $(bashio::config 'pvoutput')
-
     crudini --set "$CONFIG" PVOutput pvoutput "True" 
-    crudini --set "$CONFIG" PVOutput apikey "$(pvOutputSettings.apikey)"
-    crudini --set "$CONFIG" PVOutput systemid "$(pvOutputSettings.systemId)"
+    crudini --set "$CONFIG" PVOutput apikey "$(bashio::config 'pvoutput.apikey')"
+    crudini --set "$CONFIG" PVOutput systemid "$(bashio::config 'pvoutput.systemId')"
 fi
 
 bashio::log "Done changing configuration"
