@@ -1,0 +1,12 @@
+---
+configuration:
+  verbose:
+    name: Verbose
+    description: >-
+      Controls if the Grott plugin logs in verbose mode
+  pvoutput:
+    name: PVOutput.com
+    description: >-
+      Controls if the Grott plugin sends data to PVOutput.com
+network:
+  5279/tcp: "Port on which the Growatt inverters communicate with the company servers"

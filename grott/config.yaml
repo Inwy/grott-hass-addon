@@ -19,15 +19,13 @@ options:
   pvoutput:
     enabled: true
     apikey: ""
-    system_id: ""
+    systemId: ""
     inverter: ""
 schema:
   verbose: bool
   pvoutput:
     enabled: bool
     apikey: str?
-    system_id: str?
+    systemId: str?
 ports:
   5279/tcp: 5279
-ports_description:
-  5279/tcp: "Port on which the Growatt inverters communicate with the company servers"
