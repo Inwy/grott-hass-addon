@@ -31,7 +31,7 @@ else
     bashio::exit.nok "MQTT service is not available"
 fi
 
-if  bashio::config.has_value 'pvoutput'; then 
+if bashio::config.true 'pvoutput.enabled'; then
     bashio::log "Setting PVOutput settings"
 
     pvOutputSettings = $(bashio::config 'pvoutput')
