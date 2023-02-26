@@ -19,17 +19,14 @@ options:
   pvoutput:
     enabled: true
     apikey: "APIKey"
-    inverters:
-      - system_id: "PVOutput System ID"
-        inverter: "serial"
+    system_id: "PVOutput System ID"
+    inverter: "serial"
 schema:
   verbose: bool
   pvoutput:
     enabled: bool
     apikey: str
-    inverters:
-      - system_id: str
-        inverter: str
+    system_id: str
 ports:
   5279/tcp: 5279
 ports_description:

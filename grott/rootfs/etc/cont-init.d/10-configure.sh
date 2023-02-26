@@ -38,19 +38,7 @@ if bashio::config.true 'pvoutput.enabled'; then
 
     crudini --set "$CONFIG" PVOutput pvoutput "True" 
     crudini --set "$CONFIG" PVOutput apikey "$(pvOutputSettings.apikey)"
-
-    inverters = pvOutputSettings.inverters
-
-    if [${#inverters[@]} -gt 1]; then
-        crudini --set "$CONFIG" PVOutput pvinterters "$(invertersLenght)"
-        for i in pvOutputSettings.inverters:
-            inverter = pvOutputSettings.inverters[i]
-
-            crudini --set "$CONFIG" PVOutput "systemid".format "$(pvOutputSettings.inverters[].systemId)"
-            crudini --set "$CONFIG" PVOutput systemid "$(pvOutputSettings.inverters[0].systemId)"
-    else
-        crudini --set "$CONFIG" PVOutput systemid "$(pvOutputSettings.inverters[0].systemId)"
-    fi
+    crudini --set "$CONFIG" PVOutput systemid "$(pvOutputSettings.systemId)"
 fi
 
 bashio::log "Done changing configuration"
