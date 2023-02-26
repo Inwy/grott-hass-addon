@@ -17,17 +17,19 @@ hassio_api: true
 options:
   verbose: true
   pvoutput:
-    - apikey: "APIKey"
-      inverters:
+    enabled: true
+    apikey: "APIKey"
+    inverters:
       - system_id: "PVOutput System ID"
         inverter: "serial"
 schema:
-  verbose: "bool"
+  verbose: bool
   pvoutput:
-    - apikey: str
-      inverters:
+    enabled: bool
+    apikey: str
+    inverters:
       - system_id: str
-      - inverter: str
+        inverter: str
 ports:
   5279/tcp: 5279
 ports_description:
